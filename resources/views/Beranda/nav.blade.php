@@ -10,6 +10,6 @@
               <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
         </div>
-        <a href="">profil</a>
+        <a href="{{ route('Profile.profil') }}">profil</a>
     </div>
 </nav>
