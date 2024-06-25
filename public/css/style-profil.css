@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.profile-container {
+    max-width: 1400px;
+    margin: 50px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.profile-picture {
+    position: relative;
+    display: inline-block;
+}
+
+.profile-picture img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    border: 2px solid #fff;
+}
+
+.completion-badge {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #000;
+    color: #fff;
+    border-radius: 50%;
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+.profile-info {
+    margin-top: 10px;
+}
+
+.upgrade-button {
+    background-color: #ffd700;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.profile-stats {
+    display: flex;
+    justify-content: space-around;
+    background-color: #007bff;
+    padding: 10px 0;
+    color: #fff;
+}
+
+.stat-box {
+    text-align: center;
+}
+
+.profile-menu {
+    padding: 20px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 25px 0;
+    text-decoration: none;
+    color: #000;
+    border-bottom: 1px solid #ddd;
+}
+
+.menu-item i {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.menu-item span {
+    flex: 1;
+}
+
+.menu-item:last-child {
+    border-bottom: none;
+}
