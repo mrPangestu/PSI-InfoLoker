@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
     max-width: 100%;
+
 }
 ::-webkit-scrollbar {
     width: 8px; /* Width of the scrollbar */
@@ -28,29 +29,42 @@ body {
 header {
     padding: 5px;
 }
+.container-card {
+    margin-top: 30px;
+    padding: 5px 20px;
+    background-color: #f1f1f1;
+}
 .row-req {
     display:flex ;
     flex-direction: row;
     overflow-x: scroll;
     width: 100%;
-    padding: 10px;
-    background-color: grey;
+    padding: 5px;
 }
 .card {
-    width: 350px;
+    width: 300px;
     height: auto;
     flex: 0 0 auto;
-    margin: 15px 5px;
-    padding: 0;
+    margin: 5px 12px 5px 8px;
+    padding: 5px 20px;
     border: none;
+    border-radius: 10px;
 }
 .card-body{
-    text-align: center;
+    text-align: left;
     margin: 0;
     padding: 0;
 }
 .card-title, .card-text, .card-body a {
     margin: 5px;
+}
+
+.card-title{
+    width: 200px; /* Sesuaikan dengan kebutuhan */
+    font-size: 23px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .card-body a {
     display: block;
@@ -74,9 +88,9 @@ header {
 }
 .image {
     display: flex;
-    width: 20%;
-    margin: 5px 0 0 0;
+    margin: 15px 0px 10px 8px;
     padding: 0;
+    font-size: 30px;
 }
 .container-main {
     display: flex;
@@ -101,4 +115,49 @@ header {
     border-color: gray;
     border-radius: 0;
 }
-
+.profile {
+    margin: auto 10px auto 25px;
+    font-size: 30px;
+}
+.menu-beranda {
+    display: flex;
+    justify-content: center;
+}
+.container-menu {
+    background-color: antiquewhite;
+    margin-top: 20px;
+    width: 80%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    padding-bottom: 20px;
+}
+.container-menu .menu1 {
+    display: grid;
+    justify-content: center;
+    padding-top: 20px;
+    grid-template-columns: repeat(5, 100px); /* Membuat dua kolom dengan lebar 100px */
+    grid-template-rows: repeat(2, auto); /* Membuat dua baris dengan tinggi 100px */
+    column-gap: 30px; /* Jarak antara elemen grid */
+    row-gap: 15px;
+}
+.container-menu .items {
+    padding-top: 20px;
+    display: flex;
+    margin: 0;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+.container-menu .items .icon-menu {
+    background-color: rgb(236, 236, 236);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+}

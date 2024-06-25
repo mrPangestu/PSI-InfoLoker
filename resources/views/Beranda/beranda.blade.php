@@ -11,7 +11,77 @@
 </head>
 <body>
     @include('Beranda.nav')
+    <div class="menu-beranda">
+        <div class="container-menu">
+            <div class="menu1">
+                <div class="items">
+                    <div class="icon-menu">
+                        <i class="fa-solid fa-address-card"></i>
+                    </div>
+                    <p>Semua</p>
+                </div>
+                <div class="items">
+                    <div class="icon-menu">
+                        <i class="fa-solid fa-address-card"></i>
+                    </div>
+                    <p>Freelance</p>
+                </div>
+                <div class="items">
+                    <div class="icon-menu">
+                        <i class="fa-solid fa-address-card"></i>
+                    </div>
+                    <p>Sales</p>
+                </div>
+                <div class="items">
+                    <div class="icon-menu">
+                        <i class="fa-solid fa-address-card"></i>
+                    </div>
+                    <p>Staff Restoran</p>
+                </div>
+                <div class="items">
+                    <div class="icon-menu">
+                        <i class="fa-solid fa-address-card"></i>
+                    </div>
+                    <p>Staff Restoran</p>
+                </div>
+                <div class="items">
+                    <div class="icon-menu">
+                        <i class="fa-solid fa-address-card"></i>
+                    </div>
+                    <p>Pendidikan</p>
+                </div>
+                <div class="items">
+                    <div class="icon-menu">
+                        <i class="fa-solid fa-address-card"></i>
+                    </div>
+                    <p>Admin</p>
+                </div>
+                <div class="items">
+                    <div class="icon-menu">
+                        <i class="fa-solid fa-address-card"></i>
+                    </div>
+                    <p>Marketing</p>
+                </div>
+                <div class="items">
+                    <div class="icon-menu">
+                        <i class="fa-solid fa-address-card"></i>
+                    </div>
+                    <p>Marketing</p>
+                </div>
+                <div class="items">
+                    <div class="icon-menu">
+                        <i class="fa-solid fa-address-card"></i>
+                    </div>
+                    <p>Marketing</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
     @extends('Beranda.konten')
     @yield('content')
+
+
+    <script src="https://kit.fontawesome.com/7b730c13ab.js" crossorigin="anonymous"></script>
 </body>
 </html>
