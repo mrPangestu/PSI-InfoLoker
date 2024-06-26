@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="regis.css">
+    <link rel="stylesheet" href="public/css/regis.css">
     <title>LOGIN</title>
 </head>
 <body>
@@ -25,7 +25,7 @@
                 <label for="chk" aria-hidden="true">Login</label>
                 <input type="email" name="email" placeholder="Email" required="">
                 <input type="password" name="pswd" placeholder="Password" required="">
-                <button>Sign up</button>
+                <button>Login</button>
             </form>
         </div>
     </div>
