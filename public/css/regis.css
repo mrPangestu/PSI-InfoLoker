@@ -14,14 +14,7 @@ body{
     height: 500px;
     background: red;
     overflow: hidden;
-<<<<<<< HEAD
-    background: url(img/bg-login.jpeg) no-repeat center / cover;
-=======
     background: url(public/img/bg-login.jpeg) no-repeat center / cover;
->>>>>>> adb243c50a2365ef2b74b0afec71ae9129fd5dc8
-    border-radius: 10px;
-    box-shadow: 5px 20px 50px #000;
-
 }
 
 #chk {
