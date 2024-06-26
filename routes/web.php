@@ -2,7 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+<<<<<<< HEAD
 use App\Http\Controllers\MainController;
+=======
+use App\Http\Controllers\JobController;
+>>>>>>> adb243c50a2365ef2b74b0afec71ae9129fd5dc8
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +33,11 @@ Route::get('Profile/profil',[ProfileController::class, 'bukaprofil'])->name('Pro
 
 Route::post('/login', [MainController::class, 'login'])->name('login');
 
+<<<<<<< HEAD
+=======
+Route::get('Profile/profil',[ProfileController::class, 'bukaprofil'])->name('Profile.profil');
+
+
+Route::get('/jobs/create', [JobController::class, 'create'])->name('jobs.create');
+Route::post('/jobs', [JobController::class, 'store'])->name('jobs.store');
+>>>>>>> adb243c50a2365ef2b74b0afec71ae9129fd5dc8
