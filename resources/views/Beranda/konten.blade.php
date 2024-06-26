@@ -15,7 +15,7 @@
                 <p style="margin-top: 35px"><i>waktu</i></p>
             </div>
         </div>
-        <div class="card shadow p-3 mb-2 bg-body">
+        <div class="card shadow p-3 mb-2 bg-body" onclick="bukaprofil()">
             <div class="image">
                 <i class="fa-solid fa-building"></i>
             </div>

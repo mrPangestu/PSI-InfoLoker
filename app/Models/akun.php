@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class akun extends Model
 {
     use HasFactory;
+    protected $table = "users";
+    protected $fillable = ['name', 'email', 'password',];
 }

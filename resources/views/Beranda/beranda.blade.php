@@ -42,13 +42,13 @@
                     <div class="icon-menu">
                         <i class="fa-solid fa-address-card"></i>
                     </div>
-                    <p>Staff Restoran</p>
+                    <p>Pendidikan</p>
                 </div>
                 <div class="items">
                     <div class="icon-menu">
                         <i class="fa-solid fa-address-card"></i>
                     </div>
-                    <p>Pendidikan</p>
+                    <p>IT</p>
                 </div>
                 <div class="items">
                     <div class="icon-menu">
@@ -66,13 +66,13 @@
                     <div class="icon-menu">
                         <i class="fa-solid fa-address-card"></i>
                     </div>
-                    <p>Marketing</p>
+                    <p>Perhotelan</p>
                 </div>
                 <div class="items">
                     <div class="icon-menu">
                         <i class="fa-solid fa-address-card"></i>
                     </div>
-                    <p>Marketing</p>
+                    <p>Keuanagan</p>
                 </div>
             </div>
         </div>
@@ -83,5 +83,10 @@
 
 
     <script src="https://kit.fontawesome.com/7b730c13ab.js" crossorigin="anonymous"></script>
+    <script>
+        function bukaprofil() {
+            window.location.href = "{{ route('Profile.profil') }}";
+        }
+    </script>
 </body>
 </html>
