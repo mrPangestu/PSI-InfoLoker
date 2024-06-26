@@ -13,8 +13,12 @@
                 <img src="/img/kabogoh abi.jpeg" alt="Profile Picture">
             </div>
             <div class="profile-info">
-                <h1>NGaran maneh</h1>
-                <p>yahaha@gmail.com</p>
+                        @if(isset($user))
+            <h1>{{ $user->name }}</h1>
+            <p>{{ $user->email }}</p>
+        @else
+            <p>User not found.</p>
+        @endif
             </div>
         </div>
         <div class="profile-stats">
@@ -38,6 +42,10 @@
             <a href="#" class="menu-item">
                 <span>Pengaturan dan Privasi</span>
             </a>
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button type="submit" class="btn btn-danger">Logout</button>
+            </form>
         </div>
     </div>
 </body>

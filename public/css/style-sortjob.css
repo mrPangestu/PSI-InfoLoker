@@ -1,0 +1,40 @@
+.container {
+    margin-top: 20px;
+}
+.job-card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.job-header h3 {
+    margin: 0;
+    font-size: 18px;
+}
+.badge {
+    background-color: #ffc107;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+.job-body p {
+    margin: 5px 0;
+}
+.job-footer {
+    text-align: right;
+}
+.btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+.btn:hover {
+    background-color: #0056b3;
+}

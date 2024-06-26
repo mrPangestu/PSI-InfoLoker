@@ -37,4 +37,22 @@ class JobController extends Controller
             dd("Data gagal Disimpan");
         }
     }
+    public function destroy(Job $job){
+        $job->delete();
+
+        return redirect()->back()->with('success', 'Pekerjaan berhasil dihapus.');
+    }
+
+    public function sortJob($jobdesc_id = null)
+    {
+        $jobs = Job::where('jobdesc_id', $jobdesc_id)->get();
+
+        return view('jobs.Sortjob', compact('jobs'));
+    }
+    public function sortAllJob(){
+        $jobs = Job::all();
+
+        return view('jobs.Sortjob', compact('jobs'));
+    }
+
 }

@@ -9,6 +9,9 @@ class job extends Model
 {
     use HasFactory;
 
+    protected $table = 'jobs'; // Pastikan ini sesuai dengan nama tabel di database
+    protected $primaryKey = 'job_id';
+
     protected $fillable = ['job_id', 'jobdesc_id', 'title', 'company', 'location', 'study_id', 'salary', 'created_at', 'updated_at'];
 
     public function study()

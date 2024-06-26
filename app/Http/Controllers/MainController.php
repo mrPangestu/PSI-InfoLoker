@@ -8,9 +8,17 @@ use App\Models\job;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
+$user = User::find(1);
+$user->is_admin = true;
+$user->save();
 class MainController extends Controller
 {
     //
+
+
+    public function showLoginForm(){
+        return view('Akun.regis');
+    }
     public function regis(request $req){
         $this->validate($req, [
             'buat_name' => "required",
@@ -29,6 +37,13 @@ class MainController extends Controller
             dd("Data gagal Disimpan");
         }
     }
+    public function destroy(Job $job)
+{
+    $job->delete();
+
+    return redirect()->back()->with('success', 'Pekerjaan berhasil dihapus.');
+}
+
     public function login(Request $request)
     {
         // Validasi input
@@ -48,6 +63,14 @@ class MainController extends Controller
 
         // Jika login gagal, kembali dengan pesan kesalahan
         dd($request->all());
+    }
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/'); // Ubah redirect ke halaman yang diinginkan
     }
 
 

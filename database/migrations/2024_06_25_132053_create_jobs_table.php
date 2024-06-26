@@ -21,7 +21,6 @@ class CreateJobsTable extends Migration
             $table->string('company', 30);
             $table->string('company_name', 40);
             $table->string('location', 40);
-            $table->string('salary')->nullable();
             $table->unsignedBigInteger('study_id');
             $table->decimal('salary', 10, 0)->nullable();
             $table->timestamps();
