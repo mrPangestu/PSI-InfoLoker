@@ -22,6 +22,19 @@
             width: 1.5em;
             height: 1.5em;
         }
+
+        #love {
+            color: #007bff;
+            margin-right: 10px;
+            font-size: 35px;
+            background: none; 
+            border: none; 
+            padding: 0; 
+            cursor: pointer;
+        }
+        #love:hover {
+            color: red; 
+        }
     </style>
 </head>
 
@@ -123,12 +136,26 @@
         </div>
     </div>
     <div class="d-flex justify-content-end mt-3">
+        <button href="#" id="love" class="fa-regular fa-heart"></button>
         <a href="#" class="btn btn-primary">Lamar Pekerjaan</a>
     </div>
 </div>
 </br>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+<script src="https://kit.fontawesome.com/7b730c13ab.js"></script>
+<script>
+    document.getElementById('love').addEventListener('click', function() {
+        this.classList.toggle('clicked');
+        if (this.classList.contains('clicked')) {
+            this.classList.remove('fa-regular');
+            this.classList.add('fa-solid');
+        } else {
+            this.classList.remove('fa-solid');
+            this.classList.add('fa-regular');
+        }
+    });
+</script>
 </body>
 
 </html>

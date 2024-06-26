@@ -12,6 +12,7 @@
             <div class="profile-picture">
                 <img src="/img/kabogoh abi.jpeg" alt="Profile Picture">
             </div>
+            @auth
             <div class="profile-info">
                         @if(isset($user))
             <h1>{{ $user->name }}</h1>
@@ -20,6 +21,7 @@
             <p>User not found.</p>
         @endif
             </div>
+            @endauth
         </div>
         <div class="profile-stats">
             <div class="stat-box">
