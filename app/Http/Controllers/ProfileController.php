@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
-    public function bukaprofil()
+    public function bukaprofil($id)
     {
-        return view('Profile.profil');
+        $user = User::findOrFail($id);
+        return view('profile.show', compact('user'));
     }
-
 }

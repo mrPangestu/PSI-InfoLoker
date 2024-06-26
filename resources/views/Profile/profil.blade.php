@@ -12,10 +12,12 @@
             <div class="profile-picture">
                 <img src="/img/kabogoh abi.jpeg" alt="Profile Picture">
             </div>
+            @auth
             <div class="profile-info">
-                <h1>NGaran maneh</h1>
-                <p>yahaha@gmail.com</p>
+                <h1>{{ $user->name }}</h1>
+                <p>{{ $user->email }}</p>
             </div>
+            @endauth
         </div>
         <div class="profile-stats">
             <div class="stat-box">

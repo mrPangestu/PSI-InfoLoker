@@ -26,10 +26,9 @@ Route::get('/log', function () {
 
 Route::post('/register', [MainController::class, 'regis'])->name('user.reg');
 
-Route::get('Profile/profil',[ProfileController::class, 'bukaprofil'])->name('Profile.profil');
-
 Route::post('/login', [MainController::class, 'login'])->name('login');
-Route::get('Profile/profil',[ProfileController::class, 'bukaprofil'])->name('Profile.profil');
+
+Route::get('/profile/{id}', [ProfileController::class, 'show']);
 
 
 Route::get('/jobs/create', [JobController::class, 'create'])->name('jobs.create');
