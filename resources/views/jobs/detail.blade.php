@@ -34,7 +34,7 @@
         </div>
         <div class="card-body">
             <div class="mb-2 icon-text">
-                <img src="img/location.png" class="location-icon" alt="Location">
+                <img src="/img/location.png" class="location-icon" alt="Location">
                 <h3>Daerah</h3>
             </div>
             <div class="mb-2">
@@ -48,14 +48,14 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="mb-3 icon-text">
-                        <img src="img/pendidikan.png" alt="Pendidikan">
+                        <img src="/img/pendidikan.png" alt="Pendidikan">
                         <h5 class="mb-0">Pendidikan</h5>
                     </div>
                     <p>Minimal SMA/SMK/Sederajat</p>
                 </div>
                 <div class="col-md-6">
                     <div class="mb-3 icon-text">
-                        <img src="img/gender.png" alt="Jenis Kelamin">
+                        <img src="/img/gender.png" alt="Jenis Kelamin">
                         <h5 class="mb-0">Jenis Kelamin</h5>
                     </div>
                     <p>Semua Jenis Kelamin</p>
@@ -64,14 +64,14 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="mb-3 icon-text">
-                        <img src="img/usia.png" alt="Usia">
+                        <img src="/img/usia.png" alt="Usia">
                         <h5 class="mb-0">Usia</h5>
                     </div>
                     <p>Tidak ada batasan usia</p>
                 </div>
                 <div class="col-md-6">
                     <div class="mb-3 icon-text">
-                        <img src="img/pengalaman.png" alt="Pengalaman">
+                        <img src="/img/pengalaman.png" alt="Pengalaman">
                         <h5 class="mb-0">Pengalaman</h5>
                     </div>
                     <p>Tanpa pengalaman</p>
@@ -98,14 +98,14 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="mb-3 icon-text">
-                        <img src="img/hari.png" alt="Hari Kerja">
+                        <img src="/img/hari.png" alt="Hari Kerja">
                         <h5 class="mb-0">Hari Kerja</h5>
                     </div>
                     <p>Senin-Jumat</p>
                 </div>
                 <div class="col-md-6">
                     <div class="mb-3 icon-text">
-                        <img src="img/jam.png" alt="Jam Kerja">
+                        <img src="/img/jam.png" alt="Jam Kerja">
                         <h5 class="mb-0">Jam Kerja</h5>
                     </div>
                     <p>08.00-17.00</p>
@@ -115,7 +115,7 @@
             <div class="mb-3">
                 <h6>Tentang Perusahaan</h6>
                 <div class="mb-3 icon-text">
-                    <img src="img/perusahaan.png" alt="Perusahaan">
+                    <img src="/img/perusahaan.png" alt="Perusahaan">
                     <h4 class="mb-0">Nama Perusahaan</h4>
                 </div>
                 <p>Deskripsi tentang perusahaan</p>

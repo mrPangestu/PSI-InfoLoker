@@ -26,6 +26,7 @@ class JobdesSeeder extends Seeder
             ['title' => 'Admin'],
             ['title' => 'Marketing'],
             ['title' => 'Perhotelan'],
+            ['title' => 'Keuangan'],
         ]);
     }
 }

@@ -84,8 +84,11 @@
 
     <script src="https://kit.fontawesome.com/7b730c13ab.js" crossorigin="anonymous"></script>
     <script>
-        function bukaprofil() {
-            window.location.href = "{{ route('Profile.profil') }}";
+        function detail() {
+            window.location.href = "{{ route('job.detail') }}";
+        }
+        function add() {
+            window.location.href = "{{ route('job.add') }}";
         }
     </script>
 </body>

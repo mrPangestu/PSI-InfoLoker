@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\job;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -49,4 +50,17 @@ class MainController extends Controller
         dd($request->all());
     }
 
+
+    public function detail(){
+        return view('jobs.detail');
+    }
+    public function add(){
+        return view('jobs.create');
+    }
+
+    public function index()
+    {
+        $jobs = Job::with('study')->get();
+        return view('welcome', compact('jobs'));
+    }
 }

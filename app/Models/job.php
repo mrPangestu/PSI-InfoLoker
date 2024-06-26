@@ -9,11 +9,10 @@ class job extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'title',
-        'description',
-        'company_name',
-        'location',
-        'salary',
-    ];
+    protected $fillable = ['job_id', 'jobdesc_id', 'title', 'company', 'location', 'study_id', 'salary', 'created_at', 'updated_at'];
+
+    public function study()
+    {
+        return $this->belongsTo(Study::class, 'study_id', 'study_id');
+    }
 }

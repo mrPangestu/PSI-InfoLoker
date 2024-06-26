@@ -2,11 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
-<<<<<<< HEAD
 use App\Http\Controllers\MainController;
-=======
 use App\Http\Controllers\JobController;
->>>>>>> adb243c50a2365ef2b74b0afec71ae9129fd5dc8
 
 /*
 |--------------------------------------------------------------------------
@@ -32,12 +29,12 @@ Route::post('/register', [MainController::class, 'regis'])->name('user.reg');
 Route::get('Profile/profil',[ProfileController::class, 'bukaprofil'])->name('Profile.profil');
 
 Route::post('/login', [MainController::class, 'login'])->name('login');
-
-<<<<<<< HEAD
-=======
 Route::get('Profile/profil',[ProfileController::class, 'bukaprofil'])->name('Profile.profil');
 
 
 Route::get('/jobs/create', [JobController::class, 'create'])->name('jobs.create');
-Route::post('/jobs', [JobController::class, 'store'])->name('jobs.store');
->>>>>>> adb243c50a2365ef2b74b0afec71ae9129fd5dc8
+Route::post('/', [JobController::class, 'store'])->name('jobs.store');
+
+Route::get('/jobs/detail', [MainController::class, 'detail'])->name('job.detail');
+Route::get('/job/add', [MainController::class, 'add'])->name('job.add');
+Route::get('/', [MainController::class, 'index'])->name('jobs.index');

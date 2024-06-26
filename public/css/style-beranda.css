@@ -161,3 +161,20 @@ header {
     justify-content: center;
     font-size: 25px;
 }
+
+#add-job{
+    justify-content: center;
+    align-items: center;
+}
+
+.add-job {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    background-color: rgb(37, 131, 213);
+    font-size: 80px;
+    color: white;
+    border-radius: 50%;
+}
