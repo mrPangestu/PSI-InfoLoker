@@ -29,7 +29,7 @@
                 <p>Lowongan Disukai</p>
             </div>
             <div class="stat-box">
-                <p>0</p>
+                <p>{{ $applyHistory }}</p>
                 <p>Riwayat Lamaran</p>
             </div>
         </div>

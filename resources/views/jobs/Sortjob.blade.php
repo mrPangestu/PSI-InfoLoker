@@ -62,8 +62,8 @@
 </head>
 <body>
     <div class="container">
-        <h2>Menampilkan hasil pencarian untuk lowongan "Semua"</h2>
         @foreach ($jobs as $job)
+        <h2>Menampilkan hasil pencarian untuk lowongan "{{ $job->jobdesc->title }}"</h2>
             <div class="job-card">
                 <div class="job-header">
                     <h3>{{ $job->title }}</h3>

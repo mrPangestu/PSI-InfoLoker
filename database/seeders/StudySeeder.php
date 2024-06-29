@@ -16,11 +16,11 @@ class StudySeeder extends Seeder
     {
         //
         DB::table('studies')->insert([
-            ['title' => 'SMK/SMA/Sederajat'],
-            ['title' => 'D3/D4'],
-            ['title' => 'S1'],
-            ['title' => 'S2'],
-            ['title' => 'S3'],
+            ['title' => 'SMK/SMA/Sederajat'], //1
+            ['title' => 'D3/D4'], //2
+            ['title' => 'S1'], //3
+            ['title' => 'S2'], //4
+            ['title' => 'S3'], //5
         ]);
     }
 }

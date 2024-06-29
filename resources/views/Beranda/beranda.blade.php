@@ -84,11 +84,11 @@
 
     <script src="https://kit.fontawesome.com/7b730c13ab.js" crossorigin="anonymous"></script>
     <script>
-        function detail() {
-            window.location.href = "{{ route('job.detail') }}";
+        function detailId(jobId) {
+            window.location.href = `/jobs/detail/${jobId}`;
         }
-        function add() {
-            window.location.href = "{{ route('job.add') }}";
+        function create() {
+            window.location.href = "{{ route('jobs.create') }}";
         }
         function sortJob(jobdesc_id) {
             window.location.href = "{{ route('sort.job', ['jobdesc_id' => ':jobdesc_id']) }}".replace(':jobdesc_id', jobdesc_id);

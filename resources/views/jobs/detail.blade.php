@@ -27,13 +27,13 @@
             color: #007bff;
             margin-right: 10px;
             font-size: 35px;
-            background: none; 
-            border: none; 
-            padding: 0; 
+            background: none;
+            border: none;
+            padding: 0;
             cursor: pointer;
         }
         #love:hover {
-            color: red; 
+            color: red;
         }
     </style>
 </head>
@@ -42,20 +42,20 @@
 <div class="container mt-5">
     <div class="card">
         <div class="card-header">
-            <h2>Loker</h2>
-            <h6 class="text-muted">Pekerjaan</h6>
+            <h2>{{ $job->title }}</h2>
+            <h6 class="text-muted">{{ $job->company }}</h6>
         </div>
         <div class="card-body">
             <div class="mb-2 icon-text">
                 <img src="/img/location.png" class="location-icon" alt="Location">
-                <h3>Daerah</h3>
+                <h3>{{ $job->area }}</h3>
             </div>
             <div class="mb-2">
-                <h6 class="badge bg-primary">jenis pekerjaan</h6>
-                <h6 class="badge bg-secondary">Kerja di rumah</h6>
+                <h6 class="badge bg-primary">{{ $job->type }}</h6>
+                <h6 class="badge bg-secondary">{{ $job->location }}</h6>
             </div>
             <div class="font-size-8 d-flex justify-content-end mb-3">
-                <small>Terakhir diperbarui hari ini</small>
+                <small>{{ $job->updated_at ? 'Terakhir di Update pada ' . $job->updated_at->format('d-m-Y') : '' }}</small>
             </div>
             <hr>
             <div class="row">
@@ -64,14 +64,14 @@
                         <img src="/img/pendidikan.png" alt="Pendidikan">
                         <h5 class="mb-0">Pendidikan</h5>
                     </div>
-                    <p>Minimal SMA/SMK/Sederajat</p>
+                    <p>Minimal {{ $job->study->title }}</p>
                 </div>
                 <div class="col-md-6">
                     <div class="mb-3 icon-text">
                         <img src="/img/gender.png" alt="Jenis Kelamin">
                         <h5 class="mb-0">Jenis Kelamin</h5>
                     </div>
-                    <p>Semua Jenis Kelamin</p>
+                    <p>{{ $job->gender }}</p>
                 </div>
             </div>
             <div class="row">
@@ -80,30 +80,27 @@
                         <img src="/img/usia.png" alt="Usia">
                         <h5 class="mb-0">Usia</h5>
                     </div>
-                    <p>Tidak ada batasan usia</p>
+                    <p>{{ $job->age }}</p>
                 </div>
                 <div class="col-md-6">
                     <div class="mb-3 icon-text">
                         <img src="/img/pengalaman.png" alt="Pengalaman">
                         <h5 class="mb-0">Pengalaman</h5>
                     </div>
-                    <p>Tanpa pengalaman</p>
+                    <p>{{ $job->experience }}</p>
                 </div>
             </div>
             <hr>
             <div class="mb-3">
                 <h5>Pekerjaan ini membutuhkan</h5>
                 <ul>
-                    <li>Posisi lowongan</li>
+                    <li>{{ $job->position }}</li>
                 </ul>
             </div>
             <hr>
             <div class="mb-3">
                 <h5>Deskripsi Pekerjaan</h5>
-                <ol>
-                    <li>Isi Deskripsi</li>
-                </ol>
-                <p>Yuk ikuti lowongan kerja</p>
+                <p>{{ $job->desc_job }}</p>
             </div>
             </br>
             </br>
@@ -114,14 +111,14 @@
                         <img src="/img/hari.png" alt="Hari Kerja">
                         <h5 class="mb-0">Hari Kerja</h5>
                     </div>
-                    <p>Senin-Jumat</p>
+                    <p>{{ $job->workday_start .' - ' . $job->workday_end }}</p>
                 </div>
                 <div class="col-md-6">
                     <div class="mb-3 icon-text">
                         <img src="/img/jam.png" alt="Jam Kerja">
                         <h5 class="mb-0">Jam Kerja</h5>
                     </div>
-                    <p>08.00-17.00</p>
+                    <p>{{  $job->workhour_start->format('H:i') . ' - ' . $job->workhour_end->format('H:i') }}</p>
                 </div>
             </div>
             <hr>
@@ -129,15 +126,22 @@
                 <h6>Tentang Perusahaan</h6>
                 <div class="mb-3 icon-text">
                     <img src="/img/perusahaan.png" alt="Perusahaan">
-                    <h4 class="mb-0">Nama Perusahaan</h4>
+                    <h4 class="mb-0">{{ $job->company }}</h4>
                 </div>
-                <p>Deskripsi tentang perusahaan</p>
+                <p>{{ $job->desc_company }}</p>
             </div>
         </div>
     </div>
     <div class="d-flex justify-content-end mt-3">
         <button href="#" id="love" class="fa-regular fa-heart"></button>
-        <a href="#" class="btn btn-primary">Lamar Pekerjaan</a>
+        <form action="{{ route('jobs.apply') }}" method="POST">
+            @csrf
+            <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+            <input type="hidden" name="job_id" value="{{ $job->job_id }}">
+
+
+            <button type="submit">Apply</button>
+        </form>
     </div>
 </div>
 </br>

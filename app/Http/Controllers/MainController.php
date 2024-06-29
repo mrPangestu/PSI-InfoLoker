@@ -81,9 +81,4 @@ class MainController extends Controller
         return view('jobs.create');
     }
 
-    public function index()
-    {
-        $jobs = Job::with('study')->get();
-        return view('welcome', compact('jobs'));
-    }
 }

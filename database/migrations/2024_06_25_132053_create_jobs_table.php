@@ -1,4 +1,4 @@
-<?php
+_<?php
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -17,12 +17,26 @@ class CreateJobsTable extends Migration
             $table->id('job_id');
             $table->unsignedBigInteger('jobdesc_id');
             $table->string('title', 30);
-            $table->text('description', 40);
             $table->string('company', 30);
-            $table->string('company_name', 40);
-            $table->string('location', 40);
-            $table->unsignedBigInteger('study_id');
+            $table->text('desc_company')->nullable();
+
+            $table->string('area', 30);
+            $table->enum('type', ['Freelance', 'Magang', 'Part-time', 'Fulltime', 'Kontrak']);
+            $table->enum('location', ['Kerja di Rumah (WFH)', 'Kerja di Kantor (WFO)']);
+            $table->string('position', 20);
+            $table->text('desc_job')->nullable();
             $table->decimal('salary', 10, 0)->nullable();
+
+            $table->enum('gender', ['Laki-laki', 'Perempuan']);
+            $table->tinyInteger('age')->nullable();
+            $table->unsignedBigInteger('study_id');
+            $table->string('experience', 25)->nullable();
+
+            $table->enum('workday_start', ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu']);
+            $table->enum('workday_end', ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu']);
+            $table->time('workhour_start');
+            $table->time('workhour_end');
+
             $table->timestamps();
 
             $table->foreign('jobdesc_id')->references('jobdesc_id')->on('jobdescs')->onDelete('cascade');

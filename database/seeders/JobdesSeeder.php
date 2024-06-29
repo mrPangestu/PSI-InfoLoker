@@ -18,15 +18,15 @@ class JobdesSeeder extends Seeder
     {
         //
         DB::table('jobdescs')->insert([
-            ['title' => 'Freelance'],
-            ['title' => 'Sales'],
-            ['title' => 'Staff Restoran'],
-            ['title' => 'Pendidikan'],
-            ['title' => 'IT'],
-            ['title' => 'Admin'],
-            ['title' => 'Marketing'],
-            ['title' => 'Perhotelan'],
-            ['title' => 'Keuangan'],
+            ['title' => 'Freelance'], //1
+            ['title' => 'Sales'], //2
+            ['title' => 'Staff Restoran'], //3
+            ['title' => 'Pendidikan'], //4
+            ['title' => 'IT'], //5
+            ['title' => 'Admin'], //6
+            ['title' => 'Marketing'], //7
+            ['title' => 'Perhotelan'], //8
+            ['title' => 'Keuangan'], //9
         ]);
     }
 }
