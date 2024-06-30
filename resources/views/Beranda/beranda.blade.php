@@ -91,12 +91,13 @@
             window.location.href = "{{ route('jobs.create') }}";
         }
         function sortJob(jobdesc_id) {
-            window.location.href = "{{ route('sort.job', ['jobdesc_id' => ':jobdesc_id']) }}".replace(':jobdesc_id', jobdesc_id);
+            window.location.href = '/jobs/sort/' + jobdesc_id;
         }
 
         function sortAllJob() {
-            window.location.href = "{{ route('sortAll.job') }}";
+            window.location.href = '/jobs/sort';
         }
+
     </script>
 </body>
 </html>

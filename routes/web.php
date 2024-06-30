@@ -42,8 +42,8 @@ Route::get('/jobs/detail/', [JobController::class, 'detailContent'])->name('job.
 Route::get('/', [JobController::class, 'index'])->name('jobs.index');
 
 Route::delete('/jobs/{job}', [JobController::class, 'destroy'])->name('jobs.destroy');
-Route::post('/jobs/apply', [JobController::class, 'applyJob'])->name('jobs.apply');
 
+Route::post('/jobs/apply', [JobController::class, 'applyJob'])->name('jobs.apply');
 Route::middleware(['auth'])->group(function () {
     Route::get('/Profile/profil',[ProfileController::class, 'bukaprofil'])->name('Profile.profil');
     Route::get('/Profile/profil/{id}', [ProfileController::class, 'profil'])->name('profil.show');
@@ -53,7 +53,6 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::post('/job/add', [JobController::class, 'addJob'])->name('job.add');
 
 });
-Route::get('/job/sort/', [JobController::class, 'sortAllJob'])->name('sortAll.job');
-Route::get('/job/sort/{jobdesc_id}', [JobController::class, 'sortJob'])->name('sort.job');
-
+Route::get('/jobs/sort/{jobdesc_id?}', [JobController::class, 'sortJob'])->name('jobs.sort');
+Route::get('/jobs/search', [JobController::class, 'search'])->name('jobs.search');
 

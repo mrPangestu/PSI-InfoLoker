@@ -62,9 +62,17 @@
 </head>
 <body>
     <div class="container">
+        <h2>
+            @if($jobdescTitle)
+                Menampilkan hasil pencarian untuk Bidang {{ $jobdescTitle }}
+            @elseif($jobs->isEmpty())
+                Tidak ada pekerjaan dalam bidang ini
+            @else
+                Menampilkan semua pekerjaan
+            @endif
+        </h2>
         @foreach ($jobs as $job)
-        <h2>Menampilkan hasil pencarian untuk lowongan "{{ $job->jobdesc->title }}"</h2>
-            <div class="job-card">
+            <div class="job-card" onclick="detailId({{ $job->job_id }})">
                 <div class="job-header">
                     <h3>{{ $job->title }}</h3>
                 </div>
@@ -78,5 +86,11 @@
             </div>
         @endforeach
     </div>
+    <script>
+        function detailId(jobId) {
+            window.location.href = `/jobs/detail/${jobId}`;
+        }
+
+    </script>
 </body>
 </html>

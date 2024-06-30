@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\job;
 use App\Models\apply;
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class JobController extends Controller
 {
@@ -73,12 +75,19 @@ class JobController extends Controller
 
     public function sortJob($jobdesc_id = null)
     {
-        $jobs = Job::where('jobdesc_id', $jobdesc_id)->get();
+        if ($jobdesc_id) {
+            $jobs = Job::where('jobdesc_id', $jobdesc_id)->with('jobdesc')->get();
+            $jobdescTitle = $jobs->isEmpty() ? null : $jobs->first()->jobdesc->title;
+        } else {
+            $jobs = Job::with('jobdesc')->get();
+            $jobdescTitle = null; // Tidak ada jobdesc_title karena menampilkan semua pekerjaan
+        }
 
-        return view('jobs.Sortjob', compact('jobs'));
+        return view('jobs.sortjob', compact('jobs', 'jobdescTitle'));
     }
     public function sortAllJob(){
         $jobs = Job::all();
+
 
         return view('jobs.Sortjob', compact('jobs'));
     }
@@ -106,6 +115,14 @@ class JobController extends Controller
     }
     public function applyJob(Request $request)
     {
+        $userId = Auth::id();
+        $user = User::find($userId);
+
+        if (!$user) {
+            // Penanganan jika pengguna tidak ditemukan
+            return redirect()->route('login')->with('error', 'User not found.');
+        }
+
         $this->validate($request, [
             'user_id',
             'job_id'
@@ -121,6 +138,19 @@ class JobController extends Controller
             return redirect()->back()->with('error', 'Failed to submit application.');
         }
         return view('welcome', compact('jobs'));
+    }
+
+    public function search(Request $request)
+    {
+        $keyword = $request->input('keyword');
+
+        // Query untuk mencari pekerjaan berdasarkan judul atau deskripsi pekerjaan
+        $jobs = Job::where('title', 'LIKE', "%$keyword%")
+                    ->orWhere('desc_job', 'LIKE', "%$keyword%")
+                    ->get();
+
+        // Mengirimkan data hasil pencarian ke view
+        return view('jobs.search', compact('jobs', 'keyword'));
     }
 
 }

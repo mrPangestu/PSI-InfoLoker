@@ -134,10 +134,13 @@
     </div>
     <div class="d-flex justify-content-end mt-3">
         <button href="#" id="love" class="fa-regular fa-heart"></button>
+
         <form action="{{ route('jobs.apply') }}" method="POST">
             @csrf
+            @auth
             <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
             <input type="hidden" name="job_id" value="{{ $job->job_id }}">
+            @endauth
 
 
             <button type="submit">Apply</button>
