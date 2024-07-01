@@ -17,7 +17,7 @@ class JobSeeder1 extends Seeder
         //
         DB::table('jobs')->insert([
             [
-                'jobdesc_id' => '9',
+                'jobdesc_id' => '5',
                 'title' => 'Graphic Designer',
                 'company' => 'Docilwork',
                 'desc_company' => 'Perusahaan dalam bidang Otomotif',
@@ -29,7 +29,7 @@ class JobSeeder1 extends Seeder
                 'salary' => 2000000,
                 'gender' => 'Laki-Laki',
                 'age' => 22,
-                'study_id' => 2,
+                'study_id' => 1,
                 'experience' => '1',
                 'workday_start' => 'Senin',
                 'workday_end' => 'Jumat',
@@ -39,7 +39,7 @@ class JobSeeder1 extends Seeder
                 'updated_at' => now()
             ],
             [
-                'jobdesc_id' => '10',
+                'jobdesc_id' => '5',
                 'title' => 'Back-end Developer',
                 'company' => 'PT. Mathema',
                 'desc_company' => 'Perusahaan dalam bidang Teknologi',
@@ -51,7 +51,7 @@ class JobSeeder1 extends Seeder
                 'salary' => 8000000,
                 'gender' => 'Laki-Laki',
                 'age' => 24,
-                'study_id' => 5,
+                'study_id' => 3,
                 'experience' => '1',
                 'workday_start' => 'Senin',
                 'workday_end' => 'Jumat',
@@ -61,7 +61,7 @@ class JobSeeder1 extends Seeder
                 'updated_at' => now()
             ],
             [
-                'jobdesc_id' => '11',
+                'jobdesc_id' => '6',
                 'title' => 'Admin E-commers',
                 'company' => 'PT. Surya',
                 'desc_company' => 'Perusahaan dalam bidang makanan',
@@ -73,7 +73,7 @@ class JobSeeder1 extends Seeder
                 'salary' => 2000000,
                 'gender' => 'Perempuan',
                 'age' => 22,
-                'study_id' => 8,
+                'study_id' => 1,
                 'experience' => '0',
                 'workday_start' => 'Senin',
                 'workday_end' => 'Jumat',
@@ -83,7 +83,7 @@ class JobSeeder1 extends Seeder
                 'updated_at' => now()
             ],
             [
-                'jobdesc_id' => '12',
+                'jobdesc_id' => '5',
                 'title' => 'Data Engineer',
                 'company' => 'PT. Santosa',
                 'desc_company' => 'Perusahaan dalam bidang IT consulting',
@@ -95,7 +95,7 @@ class JobSeeder1 extends Seeder
                 'salary' => 2000000,
                 'gender' => 'Perempuan',
                 'age' => 20,
-                'study_id' => 7,
+                'study_id' => 3,
                 'experience' => '1',
                 'workday_start' => 'Senin',
                 'workday_end' => 'Jumat',
@@ -105,7 +105,7 @@ class JobSeeder1 extends Seeder
                 'updated_at' => now()
             ],
             [
-                'jobdesc_id' => '9',
+                'jobdesc_id' => '2',
                 'title' => 'Sales Wifi',
                 'company' => 'PT. Generasi',
                 'desc_company' => 'Perusahaan dalam bidang Internet',
@@ -117,7 +117,7 @@ class JobSeeder1 extends Seeder
                 'salary' => 2500000,
                 'gender' => 'Perempuan',
                 'age' => 22,
-                'study_id' => 6,
+                'study_id' => 2,
                 'experience' => '1',
                 'workday_start' => 'Senin',
                 'workday_end' => 'Jumat',
