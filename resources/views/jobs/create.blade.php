@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title> Membuat Pekerjaan Baru</title>
-    <link rel="stylesheet" href="{{ asset('css/style-formloker.css') }}">
-</head>
-<body>
+@extends('Beranda.beranda')
+@section('css')
+    <link rel="stylesheet" href="/css/style-formloker.css">
+
+@endsection
+@section('content')
     <div class="container">
         <h2>Posting Pekerjaan Baru</h2>
         @if(session('success'))
@@ -133,5 +132,4 @@
             <button type="submit" class="btn btn-primary">Bagikan Pekerjaan</button>
         </form>
     </div>
-</body>
-</html>
+@endsection

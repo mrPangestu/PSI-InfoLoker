@@ -1,20 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Search Results</title>
-</head>
-<body>
-    <h2>Hasil pencarian untuk "{{ $keyword }}"</h2>
+@extends('Beranda.beranda')
 
-    @if ($jobs->isEmpty())
-        <p>Tidak ada hasil yang ditemukan untuk pencarian ini.</p>
-    @else
-        <ul>
-            @foreach ($jobs as $job)
-                <li>{{ $job->title }}</li>
-                <!-- Tampilkan informasi pekerjaan lainnya sesuai kebutuhan -->
-            @endforeach
-        </ul>
-    @endif
-</body>
-</html>
+@section('css')
+    <link rel="stylesheet" href="/css/style-sortjob.css">
+
+@endsection
+    @section('content')
+    <div class="container">
+        @include('jobs.jobList')
+    </div>
+@endsection

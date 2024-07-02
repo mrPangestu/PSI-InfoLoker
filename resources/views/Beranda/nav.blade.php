@@ -1,10 +1,11 @@
-<nav class="navbar navbar-light bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand">Info Loker</a>
-        <form class="d-flex" method="GET" action="{{ route('jobs.search') }}">
+<nav class="navbar navbar-light" style="background: #ACE2E1">
+    <div class="container-fluid" style="margin:0px; height:40px">
+        <a class="navbar-brand" style="margin-top:-15px;">Info Loker</a>
+        <form class="d-flex" method="GET" action="{{ route('jobs.search') }}" >
             <input class="form-control me-2" type="search" placeholder="Search" name="keyword" aria-label="Search">
-            <button class="btn btn-outline-success me-3" type="submit">Search</button>
+            <button class="btn btn-outline-primary me-3" type="submit">Search</button>
             <a href="{{ route('Profile.profil') }}" class="profile"><i class="fa-solid fa-user"></i></a>
         </form>
     </div>
 </nav>
+

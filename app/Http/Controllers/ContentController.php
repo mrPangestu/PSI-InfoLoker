@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Content;
+use Illuminate\Support\Facades\Auth;
 
 class ContentController extends Controller
 {

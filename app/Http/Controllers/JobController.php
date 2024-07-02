@@ -7,6 +7,8 @@ use App\Models\apply;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
+
 
 class JobController extends Controller
 {
@@ -75,21 +77,26 @@ class JobController extends Controller
 
     public function sortJob($jobdesc_id = null)
     {
+        $jobs = Job::with('jobdesc');
+
         if ($jobdesc_id) {
-            $jobs = Job::where('jobdesc_id', $jobdesc_id)->with('jobdesc')->get();
-            $jobdescTitle = $jobs->isEmpty() ? null : $jobs->first()->jobdesc->title;
-        } else {
-            $jobs = Job::with('jobdesc')->get();
-            $jobdescTitle = null; // Tidak ada jobdesc_title karena menampilkan semua pekerjaan
+            $jobs = $jobs->where('jobdesc_id', $jobdesc_id);
+        }
+
+        $jobs = $jobs->get();
+        $jobdescTitle = $jobdesc_id ? ($jobs->isEmpty() ? null : $jobs->first()->jobdesc->title) : null;
+
+        foreach ($jobs as $job) {
+            $job->relativeDate = Carbon::parse($job->updated_at)->diffForHumans();
+            $job->formattedSalary = number_format($job->salary, 0, ',', '.');
         }
 
         return view('jobs.sortjob', compact('jobs', 'jobdescTitle'));
     }
-    public function sortAllJob(){
-        $jobs = Job::all();
 
-
-        return view('jobs.Sortjob', compact('jobs'));
+    public function sortAllJob()
+    {
+        return $this->sortJob();
     }
     public function jobDetail()
     {
@@ -100,12 +107,23 @@ class JobController extends Controller
     public function index()
     {
         $jobs = Job::with('study')->get();
+
+        foreach ($jobs as $job) {
+            $job->relativeDate = Carbon::parse($job->updated_at)->diffForHumans();
+            $job->formattedSalary = number_format($job->salary, 0, ',', '.');
+        }
+
         return view('welcome', compact('jobs'));
     }
 
     public function detailId($job_id)
     {
         $job = Job::with('study')->findOrFail($job_id);
+
+        $job->relativeDate = Carbon::parse($job->updated_at)->diffForHumans();
+
+        $job->formattedSalary = number_format($job->salary, 2, ',', '.');
+
         return view('jobs.detail', compact('job'));
     }
     public function detailContent(){
