@@ -122,15 +122,13 @@
         </div>
         <div class="d-flex justify-content-end mt-3">
             
-            <form action="{{ route('jobs.apply') }}" method="POST">
+            <form action="{{ route('favorites') }}" method="POST">
                 @csrf
                 @auth
                 <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
                 <input type="hidden" name="job_id" value="{{ $job->job_id }}">
                 @endauth
-                
-                
-                <button href="#" type="submit" id="love" class="fa-regular fa-heart"></button>
+                <button href="#" id="love" class="fa-regular fa-heart"></button>
             </form>
             <form action="{{ route('jobs.apply') }}" method="POST">
                 @csrf

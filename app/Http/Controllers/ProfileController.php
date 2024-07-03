@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\apply;
+use App\Models\favorite;
 
 
 use Illuminate\Http\Request;
@@ -23,6 +24,7 @@ class ProfileController extends Controller
         // Temukan pengguna berdasarkan ID
         $user = User::find($userId);
         $applyHistory = apply::where('user_id', $userId)->count();
+        $favoritejob = favorite::where('user_id', $userId)->count();
 
         // Periksa jika pengguna ditemukan
         if (!$user) {
@@ -31,7 +33,7 @@ class ProfileController extends Controller
         }
 
         // Kirim data pengguna ke tampilan 'Profile.profil'
-        return view('Profile.profil', compact('user','applyHistory'));
+        return view('Profile.profil', compact('user','applyHistory','favoritejob'));
     }
 
 }

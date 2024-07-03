@@ -44,6 +44,7 @@ Route::get('/', [JobController::class, 'index'])->name('jobs.index');
 Route::delete('/jobs/{job}', [JobController::class, 'destroy'])->name('jobs.destroy');
 
 Route::post('/jobs/apply', [JobController::class, 'applyJob'])->name('jobs.apply');
+Route::post('/', [JobController::class, 'favoritejob'])->name('favorites');
 Route::middleware(['auth'])->group(function () {
     Route::get('/Profile/profil',[ProfileController::class, 'bukaprofil'])->name('Profile.profil');
     Route::get('/Profile/profil/{id}', [ProfileController::class, 'profil'])->name('profil.show');
