@@ -5,6 +5,13 @@
 @endsection
 
 @section('content')
+
+    @if ($errors->has('error'))
+        <div class="alert alert-danger">
+            {{ $errors->first('error') }}
+        </div>
+    @endif
+
     <div class="container mt-5" >
         <div class="card " style="background: #F7EEDD">
             <div class="row g-0 py-2 px-4" style="background: #ACE2E1">
@@ -114,8 +121,17 @@
             </div>
         </div>
         <div class="d-flex justify-content-end mt-3">
-            <button href="#" id="love" class="fa-regular fa-heart"></button>
-
+            
+            <form action="{{ route('jobs.apply') }}" method="POST">
+                @csrf
+                @auth
+                <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+                <input type="hidden" name="job_id" value="{{ $job->job_id }}">
+                @endauth
+                
+                
+                <button href="#" type="submit" id="love" class="fa-regular fa-heart"></button>
+            </form>
             <form action="{{ route('jobs.apply') }}" method="POST">
                 @csrf
                 @auth

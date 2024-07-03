@@ -32,7 +32,7 @@ class MainController extends Controller
         $user->password = Hash::make($req->buat_password);
 
         if($user->save()) {
-            // return redirect()->refresh();
+            return view('Akun.regis');
         } else {
             dd("Data gagal Disimpan");
         }

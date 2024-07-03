@@ -1,4 +1,4 @@
-_<?php
+<?php
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -27,10 +27,10 @@ class CreateJobsTable extends Migration
             $table->text('desc_job')->nullable();
             $table->decimal('salary', 10, 0)->nullable();
 
-            $table->enum('gender', ['Laki-laki', 'Perempuan']);
+            $table->enum('gender', ['Semua', 'Laki-laki', 'Perempuan']);
             $table->tinyInteger('age')->nullable();
             $table->unsignedBigInteger('study_id');
-            $table->string('experience', 25)->nullable();
+            $table->tinyInteger('experience')->nullable();
 
             $table->enum('workday_start', ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu']);
             $table->enum('workday_end', ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu']);

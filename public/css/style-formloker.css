@@ -3,7 +3,7 @@
 /* General Styles */
 body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    background-color: #e3f2fd; /* Light blue background color */
+    background: linear-gradient(to bottom, #0F67B1, #3FA2F6, #3FA2F6, #0F67B1);
     color: #333;
     margin: 0;
     padding: 0;
@@ -16,9 +16,9 @@ body {
 .container {
     background: #ffffff;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     padding: 40px;
-    max-width: 500px;
+    max-width: 720px;
     width: 100%;
     margin: 20px; /* Added margin for small screens */
 }
@@ -41,15 +41,14 @@ label {
     color: #555;
 }
 
-input[type="text"],
-textarea {
+.form-control, .form-select {
     width: 100%;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 14px;
-    background-color: #e3f2fd; /* Light blue background color */
-    transition: all 0.3s ease;
+    background-color: aliceblue ;/* Warna latar belakang biru muda */
+    transition: all 0.3s ease; /* Transisi halus */
 }
 
 input[type="text"]:focus,

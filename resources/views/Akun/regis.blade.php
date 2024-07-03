@@ -27,15 +27,15 @@
                 @csrf
                 <label for="chk" aria-hidden="true">Sign Up</label>
                 <div class="inputBox">
-                    <input type="text" name="buat_name" placeholder="User name" required="">
+                    <input type="text" name="buat_name"  required="">
                     <span>Username</span>
                 </div>
                 <div class="inputBox">
-                    <input type="email" name="buat_email" placeholder="" required="">
+                    <input type="email" name="buat_email" required="">
                     <span>Email</span>
                 </div>
                 <div class="inputBox">
-                    <input type="password" name="buat_password" placeholder="" required="">
+                    <input type="password" name="buat_password" required="">
                     <span>Password</span>
                 </div>
                 <button type="submit" value="simpan">Sign up</button>

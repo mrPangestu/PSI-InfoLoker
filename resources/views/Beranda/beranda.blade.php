@@ -20,6 +20,31 @@
     <script>
         function detailId(jobId) {
             window.location.href = `/jobs/detail/${jobId}`;
+            
+        }
+        function showAppliesModal(jobId) {
+            fetch(`/jobs/apply/${jobId}`)
+                .then(response => response.json())
+                .then(data => {
+                    const applies = data.applies;
+                    const appliesTableBody = document.getElementById('appliesTableBody');
+                    appliesTableBody.innerHTML = ''; // Kosongkan tabel sebelum memasukkan data baru
+
+                    applies.forEach((apply, index) => {
+                        const row = `
+                            <tr>
+                                <th scope="row">${index + 1}</th>
+                                <td>${apply.user_id}</td>
+                                <td>${apply.user.name}</td>
+                                <td>${apply.user.email}</td>
+                            </tr>
+                        `;
+                        appliesTableBody.innerHTML += row;
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching applies:', error);
+                });
         }
         function create() {
             window.location.href = "{{ route('jobs.create') }}";

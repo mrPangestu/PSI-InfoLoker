@@ -78,7 +78,7 @@ body{
 
 .login{
     height: 480px;
-    background: #FAFFAF;
+    background: aliceblue;
     border-radius: 60% / 10%;
     transform: translateY(-80px);
     transition: .8s ease-in-out;
@@ -115,7 +115,7 @@ body{
     margin-bottom: 10px;
     
     border: 2px solid #3FA2F6;
-    background: #FAFFAF;
+    background: aliceblue;
     border-radius: 5px;
     outline: none;
     color: rgba(255,255,255,0,25);
@@ -142,7 +142,7 @@ body{
     transform: translateX(10px) translateY(-8px);
     font-size: 0.65em;
     padding: 0 10px;
-    background: #FAFFAF;
+    background: aliceblue;
     border-left: 2px solid #0F67B1;
     border-right: 2px solid #0F67B1;
 }

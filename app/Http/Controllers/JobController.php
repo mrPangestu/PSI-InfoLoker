@@ -105,16 +105,60 @@ class JobController extends Controller
         return view('jobs.job-detail', compact('jobs'));
     }
     public function index()
-    {
-        $jobs = Job::with('study')->get();
+{
+    // Query pertama
+    $jobs1 = Job::with('study')
+        ->where('salary', '>', 4000000)
+        ->where('experience', '<=', 1)
+        ->whereIn('study_id', [1, 2, 3]) // Menggunakan whereIn untuk multiple nilai study_id
+        ->whereIn('type', ['fulltime', 'Part-time']) // Menggunakan whereIn untuk multiple tipe
+        ->get();
 
-        foreach ($jobs as $job) {
+    // Query kedua
+    $jobs2 = Job::with('study')
+        ->where('experience', '>=', 2) // Memperbaiki operator yang tidak tepat dari '2=' menjadi '='
+        ->where('study_id', '>=', 3)
+        ->where('type', 'LIKE', 'fulltime')
+        ->where('location', 'LIKE', 'Kerja di Kantor (WFO)')
+        ->get();
+
+    $jobs3 = Job::with('study')
+        ->where('salary', '>', 8000000)
+        ->get();
+
+    $jobs4 = Job::with('study')
+        ->where('experience', '<', 1)
+        ->whereIn('study_id', [1, 2, 3]) // Menggunakan whereIn untuk multiple nilai study_id
+        ->get();
+
+    $jobs5 = Job::with('study')
+        ->whereIn('study_id', [1]) // Menggunakan whereIn untuk multiple nilai study_id
+        ->get();
+
+    // Query untuk semua pekerjaan
+    $jobs = Job::with('study')->get();
+
+    // Gabungkan semua hasil query dalam satu array
+    $allJobs = [
+        'jobs' => $jobs,
+        'jobs1' => $jobs1,
+        'jobs2' => $jobs2,
+        'jobs3' => $jobs3,
+        'jobs4' => $jobs4,
+        'jobs5' => $jobs5,
+    ];
+
+    // Melakukan perubahan format dan penambahan properti pada semua hasil query
+    foreach ($allJobs as &$jobsCategory) {
+        foreach ($jobsCategory as &$job) {
             $job->relativeDate = Carbon::parse($job->updated_at)->diffForHumans();
             $job->formattedSalary = number_format($job->salary, 0, ',', '.');
         }
-
-        return view('welcome', compact('jobs'));
     }
+
+    return view('welcome', compact('allJobs'));
+}
+
 
     public function detailId($job_id)
     {
@@ -137,14 +181,22 @@ class JobController extends Controller
         $user = User::find($userId);
 
         if (!$user) {
-            // Penanganan jika pengguna tidak ditemukan
             return redirect()->route('login')->with('error', 'User not found.');
         }
 
         $this->validate($request, [
-            'user_id',
-            'job_id'
+            'user_id' => 'required',
+            'job_id' => 'required'
         ]);
+
+        // Check if the application already exists
+        $existingApplication = Apply::where('user_id', $request->input('user_id'))
+                                ->where('job_id', $request->input('job_id'))
+                                ->exists();
+
+        if ($existingApplication) {
+            return redirect()->back()->withErrors(['error' => 'You have already applied for this job.']);
+        }
 
         $apply = new Apply();
         $apply->user_id = $request->input('user_id');
@@ -155,20 +207,37 @@ class JobController extends Controller
         } else {
             return redirect()->back()->with('error', 'Failed to submit application.');
         }
-        return view('welcome', compact('jobs'));
     }
+
 
     public function search(Request $request)
     {
         $keyword = $request->input('keyword');
 
         // Query untuk mencari pekerjaan berdasarkan judul atau deskripsi pekerjaan
-        $jobs = Job::where('title', 'LIKE', "%$keyword%")
-                    ->orWhere('desc_job', 'LIKE', "%$keyword%")
-                    ->get();
+        $jobs = Job::with('study')
+                ->where('title', 'LIKE', "%$keyword%")
+                ->orWhere('desc_job', 'LIKE', "%$keyword%")
+                ->orWhere('type', 'LIKE', "%$keyword%")
+                ->orWhereHas('study', function ($query) use ($keyword) {
+                    $query->where('title', 'LIKE', "%$keyword%");
+                })
+                ->get();
+
+        foreach ($jobs as $job) {
+            $job->relativeDate = Carbon::parse($job->updated_at)->diffForHumans();
+            $job->formattedSalary = number_format($job->salary, 0, ',', '.');
+        }
 
         // Mengirimkan data hasil pencarian ke view
         return view('jobs.search', compact('jobs', 'keyword'));
+    }
+    public function detail($job_id)
+    {
+        $job = Job::findOrFail($job_id);
+        $applies = Apply::where('job_id', $job_id)->with('user')->get();
+    
+        return response()->json(['applies' => $applies]);
     }
 
 }

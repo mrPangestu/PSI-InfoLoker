@@ -51,8 +51,9 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/jobs/create', [JobController::class, 'create'])->name('jobs.create');
     Route::post('/job/add', [JobController::class, 'addJob'])->name('job.add');
+    Route::get('/jobs/apply/{jobId}', [JobController::class, 'detail']);
+
 
 });
 Route::get('/jobs/sort/{jobdesc_id?}', [JobController::class, 'sortJob'])->name('jobs.sort');
 Route::get('/jobs/search', [JobController::class, 'search'])->name('jobs.search');
-
