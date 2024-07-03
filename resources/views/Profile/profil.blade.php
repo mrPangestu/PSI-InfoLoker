@@ -24,7 +24,7 @@
         </div>
         <div class="profile-stats">
             <div class="stat-box">
-                <p>0</p>
+                <p>{{ $favoritejob }}</p>
                 <p>Lowongan Disukai</p>
             </div>
             <div class="stat-box">

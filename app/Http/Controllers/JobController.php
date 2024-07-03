@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\job;
 use App\Models\apply;
+use App\Models\favorite;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -154,6 +155,33 @@ class JobController extends Controller
             return redirect()->route('jobs.index')->with('success', 'Application submitted successfully!');
         } else {
             return redirect()->back()->with('error', 'Failed to submit application.');
+        }
+        return view('welcome', compact('jobs'));
+    }
+
+    public function favoritejob(Request $request)
+    {
+        $userId = Auth::id();
+        $user = User::find($userId);
+
+        if (!$user) {
+            // Penanganan jika pengguna tidak ditemukan
+            return redirect()->route('login')->with('error', 'User not found.');
+        }
+
+        $this->validate($request, [
+            'user_id',
+            'job_id'
+        ]);
+
+        $favorite = new Favorite();
+        $favorite->user_id = $request->input('user_id');
+        $favorite->job_id = $request->input('job_id');
+
+        if ($favorite->save()) {
+            return redirect()->route('jobs.index')->with('success', 'Add to favorite job!');
+        } else {
+            return redirect()->back()->with('error', 'Failed to add to favorite job.');
         }
         return view('welcome', compact('jobs'));
     }
